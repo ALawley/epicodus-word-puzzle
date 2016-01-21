@@ -8,19 +8,18 @@ var wordPuzzle = function(str) {
   return str;
 }
 
-
-
-
-// $(document).ready(function() {
-//   $("form").submit(function(event){
-//     var firstNumber = parseInt($("input#firstNumber").val());
-//     var secondNumber = parseInt($("input#secondNumber").val());
-//     var outputs = countUp(firstNumber, secondNumber);
-//     $("#output").empty()
-//     outputs.forEach(function(output) {
-//       $("#output").append("<li>" + output + "</li>")
-//     });
-//     event.preventDefault();
-//   });
-//
-// });
+$(document).ready(function() {
+  $("form").submit(function(event){
+    var str = $("input#puzzleString").val();
+    var output = wordPuzzle(str);
+    $(".question").hide();
+    $(".result").show();
+    $("p#result").text(output)
+    event.preventDefault();
+  });
+  $("#return").click(function(event) {
+    $(".question").show();
+    $(".result").hide();
+    event.preventDefault();
+  });
+});
